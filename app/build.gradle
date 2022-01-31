@@ -6,6 +6,7 @@ plugins {
 }
 
 android {
+
     testOptions {
         unitTests.returnDefaultValues = true
     }
@@ -13,12 +14,12 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.test.sysco"
+        applicationId "com.test.assignment"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -39,17 +40,14 @@ android {
     productFlavors {
         dev {
             versionNameSuffix "-dev"
-            // versionName = "-qa"
-            buildConfigField "String", "API_URL", "\"https://swapi.dev/api/\""
+            buildConfigField "String", "API_URL", "\"https://api.pexels.com/v1/\""
         }
         prod {
             versionNameSuffix ""
-            // versionName = "-prod"
-            buildConfigField "String", "API_URL", "\"https://swapi.dev/api/\""
+            buildConfigField "String", "API_URL", "\"https://api.pexels.com/v1/\""
         }
     }
 }
-//https://swapi.dev/api/
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -64,7 +62,6 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
 
-//    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
 
     implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
